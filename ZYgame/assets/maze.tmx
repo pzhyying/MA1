@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="2">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="23">
  <editorsettings>
   <export target="maze.tmj" format="json"/>
  </editorsettings>
@@ -26,6 +26,71 @@
  </layer>
  <objectgroup id="5" name="Object Layer 1">
   <object id="1" name="mazeStart" x="909" y="617">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="grassLayer">
+  <object id="2" x="911" y="425">
+   <point/>
+  </object>
+  <object id="3" name="grass20" x="777" y="525">
+   <point/>
+  </object>
+  <object id="4" name="grass19" x="174" y="165">
+   <point/>
+  </object>
+  <object id="5" name="grass18" x="848" y="230">
+   <point/>
+  </object>
+  <object id="6" name="grass17" x="722" y="176">
+   <point/>
+  </object>
+  <object id="7" name="grass16" x="719" y="461">
+   <point/>
+  </object>
+  <object id="8" name="grass15" x="592" y="534">
+   <point/>
+  </object>
+  <object id="9" name="grass14" x="622" y="328">
+   <point/>
+  </object>
+  <object id="10" name="grass13" x="171" y="436">
+   <point/>
+  </object>
+  <object id="11" name="grass12" x="362" y="354">
+   <point/>
+  </object>
+  <object id="12" name="grass11" x="553" y="265">
+   <point/>
+  </object>
+  <object id="13" name="grass10" x="634" y="174">
+   <point/>
+  </object>
+  <object id="14" name="grass9" x="491" y="172">
+   <point/>
+  </object>
+  <object id="15" name="grass8" x="491" y="172">
+   <point/>
+  </object>
+  <object id="16" name="grass7" x="369" y="221">
+   <point/>
+  </object>
+  <object id="17" name="grass6" x="241" y="571">
+   <point/>
+  </object>
+  <object id="18" name="grass5" x="170" y="239">
+   <point/>
+  </object>
+  <object id="19" name="grass4" x="240" y="300">
+   <point/>
+  </object>
+  <object id="20" name="grass3" x="368" y="439">
+   <point/>
+  </object>
+  <object id="21" name="grass2" x="534" y="393">
+   <point/>
+  </object>
+  <object id="22" name="grass1" x="783" y="311">
    <point/>
   </object>
  </objectgroup>

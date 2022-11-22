@@ -50,6 +50,15 @@ class level2 extends Phaser.Scene {
       this.decoLayer = map.createLayer("decoLayer",tilesArray,0,0);
       
   
+       //grassAnimation
+  this.anims.create({
+    key:'grassAnim',
+    frames:this.anims.generateFrameNumbers('object',
+    { start:2, end:3 }),
+    frameRate:10,
+    repeat:-1
+});
+
       this.grassGroup=this.physics.add.group()
 
       var grass1 = map.findObject("grassLayer", (obj) => obj.name === "grass1");
@@ -79,38 +88,38 @@ class level2 extends Phaser.Scene {
       var grass9 = map.findObject("grassLayer", (obj) => obj.name === "grass9");
       this.grassGroup.create(grass9.x,grass9.y,"grass9").play("grassAnim");
   
-      var dust10 = map.findObject("dustLayer", (obj) => obj.name === "dust10");
-      this.dustGroup.create(dust10.x,dust10.y,"dust10").play("dustAnim");
+      var grass10 = map.findObject("grassLayer", (obj) => obj.name === "grass10");
+      this.grassGroup.create(grass10.x,grass10.y,"grass10").play("grassAnim");
   
-      var dust11 = map.findObject("dustLayer", (obj) => obj.name === "dust11");
-      this.dustGroup.create(dust11.x,dust11.y,"dust11").play("dustAnim");
+      var grass11 = map.findObject("grassLayer", (obj) => obj.name === "grass11");
+      this.grassGroup.create(grass11.x,grass11.y,"grass11").play("grassAnim");
   
-      var dust12 = map.findObject("dustLayer", (obj) => obj.name === "dust12");
-      this.dustGroup.create(dust12.x,dust12.y,"dust12").play("dustAnim");
+      var grass12 = map.findObject("grassLayer", (obj) => obj.name === "grass12");
+      this.grassGroup.create(grass12.x,grass12.y,"grass12").play("grassAnim");
   
-      var dust13 = map.findObject("dustLayer", (obj) => obj.name === "dust13");
-      this.dustGroup.create(dust13.x,dust13.y,"dust13").play("dustAnim");
+      var grass13 = map.findObject("grassLayer", (obj) => obj.name === "grass13");
+      this.grassGroup.create(grass13.x,grass13.y,"grass13").play("grassAnim");
   
-      var dust14 = map.findObject("dustLayer", (obj) => obj.name === "dust14");
-      this.dustGroup.create(dust14.x,dust14.y,"dust14").play("dustAnim");
+      var grass14 = map.findObject("grassLayer", (obj) => obj.name === "grass14");
+      this.grassGroup.create(grass14.x,grass14.y,"grass14").play("grassAnim");
   
-      var dust15 = map.findObject("dustLayer", (obj) => obj.name === "dust15");
-      this.dustGroup.create(dust15.x,dust15.y,"dust15").play("dustAnim");
+      var grass15 = map.findObject("grassLayer", (obj) => obj.name === "grass15");
+      this.grassGroup.create(grass15.x,grass15.y,"grass15").play("grassAnim");
   
-      var dust16 = map.findObject("dustLayer", (obj) => obj.name === "dust16");
-      this.dustGroup.create(dust16.x,dust16.y,"dust16").play("dustAnim");
+      var grass16 = map.findObject("grassLayer", (obj) => obj.name === "grass16");
+      this.grassGroup.create(grass16.x,grass16.y,"grass16").play("grassAnim");
   
-      var dust17 = map.findObject("dustLayer", (obj) => obj.name === "dust17");
-      this.dustGroup.create(dust17.x,dust17.y,"dust17").play("dustAnim");
+      var grass17 = map.findObject("grassLayer", (obj) => obj.name === "grass17");
+      this.grassGroup.create(grass17.x,grass17.y,"grass17").play("grassAnim");
   
-      var dust18 = map.findObject("dustLayer", (obj) => obj.name === "dust18");
-      this.dustGroup.create(dust18.x,dust18.y,"dust18").play("dustAnim");
+      var grass18 = map.findObject("grassLayer", (obj) => obj.name === "grass18");
+      this.grassGroup.create(grass18.x,grass18.y,"grass18").play("grassAnim");
   
-      var dust19 = map.findObject("dustLayer", (obj) => obj.name === "dust19");
-      this.dustGroup.create(dust19.x,dust19.y,"dust19").play("dustAnim");
+      var grass19 = map.findObject("grassLayer", (obj) => obj.name === "grass19");
+      this.grassGroup.create(grass19.x,grass19.y,"grass19").play("grassAnim");
   
-      var dust20 = map.findObject("dustLayer", (obj) => obj.name === "dust20");
-      this.dustGroup.create(dust20.x,dust20.y,"dust20").play("dustAnim");
+      var grass20 = map.findObject("grassLayer", (obj) => obj.name === "grass20");
+      this.grassGroup.create(grass20.x,grass20.y,"grass20").play("grassAnim");
 
       // Add main player here with physics.add.sprite
       var spaceDown = this.input.keyboard.addKey('SPACE');
@@ -175,7 +184,12 @@ class level2 extends Phaser.Scene {
   
     this.player.setCollideWorldBounds(true);//don't go out of the this.map
     
-  
+    this.physics.add.overlap(
+      this.player,
+      this.grassGroup,
+      this.collectGrass,null,this
+    );
+
       // Add time event / movement here
   
       // get the tileIndex number in json, +1
@@ -193,6 +207,10 @@ class level2 extends Phaser.Scene {
       // this.cameras.main.startFollow(this.player);
     } /////////////////// end of create //////////////////////////////
   
+    collectGrass(player,grassGroup){
+      console.log("grassOverlap")
+    };
+
     update() {
       // if(this.player.x >616 && this.player.x <663 && this.player.y >625 && this.player.y <625)
       // console.log("Jump to world")
