@@ -62,22 +62,22 @@ class level2 extends Phaser.Scene {
       this.grassGroup.create(grass3.x,grass3.y,"grass3").play("grassAnim");
   
       var grass4 = map.findObject("grassLayer", (obj) => obj.name === "grass4");
-      this.grassGroup.create(dust4.x,dust4.y,"dust4").play("grassAnim");
+      this.grassGroup.create(grass4.x,grass4.y,"grass4").play("grassAnim");
   
-      var grass5 = map.findObject("dustLayer", (obj) => obj.name === "dust5");
-      this.grassGroup.create(dust5.x,dust5.y,"dust5").play("grassAnim");
+      var grass5 = map.findObject("grassLayer", (obj) => obj.name === "grass5");
+      this.grassGroup.create(grass5.x,grass5.y,"grass5").play("grassAnim");
   
-      var dust6 = map.findObject("dustLayer", (obj) => obj.name === "dust6");
-      this.dustGroup.create(dust6.x,dust6.y,"dust6").play("dustAnim");
+      var grass6 = map.findObject("grassLayer", (obj) => obj.name === "grass6");
+      this.grassGroup.create(grass6.x,grass6.y,"grass6").play("grassAnim");
   
-      var dust7 = map.findObject("dustLayer", (obj) => obj.name === "dust7");
-      this.dustGroup.create(dust7.x,dust7.y,"dust7").play("dustAnim");
+      var grass7 = map.findObject("grassLayer", (obj) => obj.name === "grass7");
+      this.grassGroup.create(grass7.x,grass7.y,"grass7").play("grassAnim");
   
-      var dust8 = map.findObject("dustLayer", (obj) => obj.name === "dust8");
-      this.dustGroup.create(dust8.x,dust8.y,"dust8").play("dustAnim");
+      var grass8 = map.findObject("grassLayer", (obj) => obj.name === "grass8");
+      this.grassGroup.create(grass8.x,grass8.y,"grass8").play("grassAnim");
   
-      var dust9 = map.findObject("dustLayer", (obj) => obj.name === "dust9");
-      this.dustGroup.create(dust9.x,dust9.y,"dust9").play("dustAnim");
+      var grass9 = map.findObject("grassLayer", (obj) => obj.name === "grass9");
+      this.grassGroup.create(grass9.x,grass9.y,"grass9").play("grassAnim");
   
       var dust10 = map.findObject("dustLayer", (obj) => obj.name === "dust10");
       this.dustGroup.create(dust10.x,dust10.y,"dust10").play("dustAnim");
