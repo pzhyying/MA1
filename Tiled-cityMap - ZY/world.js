@@ -17,8 +17,11 @@ class world extends Phaser.Scene {
 
     // Step 2 : Preload any images here
     this.load.image("pipoyaImg", "assets/pipoya.png");
-    
 
+    //dust
+    this.load.spritesheet('object', 'assets/object.png', {frameWidth:32, frameHeight: 32});
+
+    //girl
     this.load.spritesheet('girl', 'assets/yuri.png', {frameWidth: 64, frameHeight: 64});
   }
 

@@ -50,6 +50,68 @@ class level2 extends Phaser.Scene {
       this.decoLayer = map.createLayer("decoLayer",tilesArray,0,0);
       
   
+      this.grassGroup=this.physics.add.group()
+
+      var grass1 = map.findObject("grassLayer", (obj) => obj.name === "grass1");
+      this.grassGroup.create(grass1.x,grass1.y,"grass1").play("grassAnim");
+  
+      var grass2 = map.findObject("grassLayer", (obj) => obj.name === "grass2");
+      this.grassGroup.create(grass2.x,grass2.y,"grass2").play("grassAnim");
+  
+      var grass3 = map.findObject("grassLayer", (obj) => obj.name === "grass3");
+      this.grassGroup.create(grass3.x,grass3.y,"grass3").play("grassAnim");
+  
+      var grass4 = map.findObject("grassLayer", (obj) => obj.name === "grass4");
+      this.grassGroup.create(dust4.x,dust4.y,"dust4").play("grassAnim");
+  
+      var grass5 = map.findObject("dustLayer", (obj) => obj.name === "dust5");
+      this.grassGroup.create(dust5.x,dust5.y,"dust5").play("grassAnim");
+  
+      var dust6 = map.findObject("dustLayer", (obj) => obj.name === "dust6");
+      this.dustGroup.create(dust6.x,dust6.y,"dust6").play("dustAnim");
+  
+      var dust7 = map.findObject("dustLayer", (obj) => obj.name === "dust7");
+      this.dustGroup.create(dust7.x,dust7.y,"dust7").play("dustAnim");
+  
+      var dust8 = map.findObject("dustLayer", (obj) => obj.name === "dust8");
+      this.dustGroup.create(dust8.x,dust8.y,"dust8").play("dustAnim");
+  
+      var dust9 = map.findObject("dustLayer", (obj) => obj.name === "dust9");
+      this.dustGroup.create(dust9.x,dust9.y,"dust9").play("dustAnim");
+  
+      var dust10 = map.findObject("dustLayer", (obj) => obj.name === "dust10");
+      this.dustGroup.create(dust10.x,dust10.y,"dust10").play("dustAnim");
+  
+      var dust11 = map.findObject("dustLayer", (obj) => obj.name === "dust11");
+      this.dustGroup.create(dust11.x,dust11.y,"dust11").play("dustAnim");
+  
+      var dust12 = map.findObject("dustLayer", (obj) => obj.name === "dust12");
+      this.dustGroup.create(dust12.x,dust12.y,"dust12").play("dustAnim");
+  
+      var dust13 = map.findObject("dustLayer", (obj) => obj.name === "dust13");
+      this.dustGroup.create(dust13.x,dust13.y,"dust13").play("dustAnim");
+  
+      var dust14 = map.findObject("dustLayer", (obj) => obj.name === "dust14");
+      this.dustGroup.create(dust14.x,dust14.y,"dust14").play("dustAnim");
+  
+      var dust15 = map.findObject("dustLayer", (obj) => obj.name === "dust15");
+      this.dustGroup.create(dust15.x,dust15.y,"dust15").play("dustAnim");
+  
+      var dust16 = map.findObject("dustLayer", (obj) => obj.name === "dust16");
+      this.dustGroup.create(dust16.x,dust16.y,"dust16").play("dustAnim");
+  
+      var dust17 = map.findObject("dustLayer", (obj) => obj.name === "dust17");
+      this.dustGroup.create(dust17.x,dust17.y,"dust17").play("dustAnim");
+  
+      var dust18 = map.findObject("dustLayer", (obj) => obj.name === "dust18");
+      this.dustGroup.create(dust18.x,dust18.y,"dust18").play("dustAnim");
+  
+      var dust19 = map.findObject("dustLayer", (obj) => obj.name === "dust19");
+      this.dustGroup.create(dust19.x,dust19.y,"dust19").play("dustAnim");
+  
+      var dust20 = map.findObject("dustLayer", (obj) => obj.name === "dust20");
+      this.dustGroup.create(dust20.x,dust20.y,"dust20").play("dustAnim");
+
       // Add main player here with physics.add.sprite
       var spaceDown = this.input.keyboard.addKey('SPACE');
   
