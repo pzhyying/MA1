@@ -135,6 +135,16 @@ class lab extends Phaser.Scene {
       // if(this.player.x >616 && this.player.x <663 && this.player.y >625 && this.player.y <625)
       // console.log("Jump to world")
       // this.world();
+
+      if(this.player.x >588 && this.player.x <631 && this.player.y >337 && this.player.y <358) {
+        console.log("Jump to intro1")
+        this.intro1();
+      }
+
+      if(this.player.x >328 && this.player.x <375 && this.player.y >593 && this.player.y <622) {
+        console.log("Jump to world")
+        this.world();
+      }
   
         if (this.cursors.left.isDown)
         {
@@ -167,6 +177,16 @@ class lab extends Phaser.Scene {
     //   console.log("level1 function");
     //   this.scene.start("level1");
     // }
+
+    intro1(player,title){
+      console.log("intro1 function");
+      this.scene.start("intro1");
+    }
+
+    world(player,title){
+      console.log("world function");
+      this.scene.start("world");
+    }
   
   } //////////// end of class world ////////////////////////
   

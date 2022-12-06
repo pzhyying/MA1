@@ -1,7 +1,7 @@
-class world extends Phaser.Scene {
+class lab2 extends Phaser.Scene {
   constructor() {
     super({
-      key: "world",
+      key: "lab2",
     });
 
     // Put global variable here
@@ -13,15 +13,12 @@ class world extends Phaser.Scene {
 
   preload() {
     // Step 1, load JSON
-    this.load.tilemapTiledJSON("world", "assets/map.tmj");
+    this.load.tilemapTiledJSON("lab2", "assets/lab.tmj");
 
     // Step 2 : Preload any images here
     this.load.image("pipoyaImg", "assets/pipoya.png");
+    
 
-    //dust
-    this.load.spritesheet('object', 'assets/object.png', {frameWidth:32, frameHeight: 32});
-
-    //girl
     this.load.spritesheet('girl', 'assets/yuri.png', {frameWidth: 64, frameHeight: 64});
   }
 
@@ -31,7 +28,7 @@ class world extends Phaser.Scene {
 
     //Step 3 - Create the map from main
     //let map = this.make.tilemap({ key: "world1" });
-    let map = this.make.tilemap({ key: "world" });
+    let map = this.make.tilemap({ key: "lab2" });
 
 
     // Step 4 Load the game tiles
@@ -88,14 +85,16 @@ class world extends Phaser.Scene {
       repeat:-1
   });
 
- 
+  // var start = map.findObject("Object Layer 1", (obj) => obj.name === "mazeStart");
 
-  this.player = this.physics.add.sprite(658, 385, 'girl').setScale(0.9)
-  window.player = this.player;
+  // this.player = this.physics.add.sprite(Start.x, Start.y, 'girl').setScale(0.9)
+  this.player = this.physics.add.sprite(612, 388, 'girl').setScale(0.9)
+window.player = this.player;
 
-  this.player.body.setSize(this.player.width*0.3, this.player.height*0.5)
+  this.player.body.setSize(this.player.width*0.3, this.player.height*0.6)
 
-  this.buildingLayer.setCollisionByExclusion(-1, true) 
+  // this.chairLayer.setCollisionByExclusion(-1, true)
+  this.buildingLayer.setCollisionByExclusion(-1, true)
   this.decoLayer.setCollisionByExclusion(-1, true)
 
   // Show colliding tiles as different colours 
@@ -106,13 +105,13 @@ class world extends Phaser.Scene {
   // faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   // });
 
-  this.physics.add.collider(this.decoLayer, this.player);
+  // this.physics.add.collider(this.groundLayer, this.player);
   this.physics.add.collider(this.buildingLayer, this.player);
-  
+  this.physics.add.collider(this.decoLayer, this.player);
 
   //window.player=this.player;
 
-  // this.player.setCollideWorldBounds(true);//don't go out of the this.map
+  this.player.setCollideWorldBounds(true);//don't go out of the this.map
   
 
     // Add time event / movement here
@@ -129,30 +128,23 @@ class world extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
 
     // camera follow player
-    this.cameras.main.startFollow(this.player);
+    // this.cameras.main.startFollow(this.player);
   } /////////////////// end of create //////////////////////////////
 
   update() {
-    // if(this.player.x >416 && this.player.x <455 && this.player.y >846 && this.player.y <881) {
-    //   console.log("Jump to level1")
-    //   this.level1();
-    // }
+    // if(this.player.x >616 && this.player.x <663 && this.player.y >625 && this.player.y <625)
+    // console.log("Jump to world")
+    // this.world();
 
-    // if(this.player.x >584 && this.player.x <599 && this.player.y >315 && this.player.y <331) {
-    //   console.log("Jump to level2")
-    //   this.level2();
-    // }
-
-    // if(this.player.x >575 && this.player.x <623 && this.player.y >878 && this.player.y <913) {
-    //   console.log("Jump to level3")
-    //   this.level3();
-    // }
-
-    if(this.player.x >840 && this.player.x <887 && this.player.y >211 && this.player.y <235) {
-      console.log("Jump to lab")
-      this.lab();
+    if(this.player.x >588 && this.player.x <631 && this.player.y >337 && this.player.y <358) {
+      console.log("Jump to intro1")
+      this.intro1();
     }
 
+    if(this.player.x >328 && this.player.x <375 && this.player.y >593 && this.player.y <622) {
+      console.log("Jump to world2")
+      this.world2();
+    }
 
       if (this.cursors.left.isDown)
       {
@@ -186,20 +178,14 @@ class world extends Phaser.Scene {
   //   this.scene.start("level1");
   // }
 
-  // level2(player,title){
-  //   console.log("level2 function");
-  //   this.scene.start("level2");
-  // }
-
-  // level3(player,title){
-  //   console.log("level3 function");
-  //   this.scene.start("level3");
-  // }
-
-  lab(player,title){
-    console.log("lab function");
-    this.scene.start("lab");
+  intro1(player,title){
+    console.log("intro1 function");
+    this.scene.start("intro1");
   }
 
+  world2(player,title){
+    console.log("world2 function");
+    this.scene.start("world2");
+  }
 
 } //////////// end of class world ////////////////////////

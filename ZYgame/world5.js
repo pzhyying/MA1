@@ -1,7 +1,7 @@
-class world extends Phaser.Scene {
+class world5 extends Phaser.Scene {
   constructor() {
     super({
-      key: "world",
+      key: "world5",
     });
 
     // Put global variable here
@@ -50,7 +50,6 @@ class world extends Phaser.Scene {
     // Step 6  Load in layers by layers
     this.groundLayer = map.createLayer("groundLayer",tilesArray,0,0);
     this.buildingLayer = map.createLayer("buildingLayer",tilesArray,0,0);
-    this.decoLayer = map.createLayer("decoLayer",tilesArray,0,0);
     
 
     // Add main player here with physics.add.sprite
@@ -90,13 +89,12 @@ class world extends Phaser.Scene {
 
  
 
-  this.player = this.physics.add.sprite(658, 385, 'girl').setScale(0.9)
+  this.player = this.physics.add.sprite(733, 897, 'girl').setScale(0.9)
   window.player = this.player;
 
   this.player.body.setSize(this.player.width*0.3, this.player.height*0.5)
 
   this.buildingLayer.setCollisionByExclusion(-1, true) 
-  this.decoLayer.setCollisionByExclusion(-1, true)
 
   // Show colliding tiles as different colours 
   // const debugGraphics = this.add.graphics().setAlpha(0.75);
@@ -106,9 +104,7 @@ class world extends Phaser.Scene {
   // faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   // });
 
-  this.physics.add.collider(this.decoLayer, this.player);
   this.physics.add.collider(this.buildingLayer, this.player);
-  
 
   //window.player=this.player;
 
@@ -138,20 +134,20 @@ class world extends Phaser.Scene {
     //   this.level1();
     // }
 
-    // if(this.player.x >584 && this.player.x <599 && this.player.y >315 && this.player.y <331) {
-    //   console.log("Jump to level2")
-    //   this.level2();
-    // }
+    if(this.player.x >599 && this.player.x <717 && this.player.y >396 && this.player.y <526) {
+      console.log("Jump to introend")
+      this.introend();
+    }
 
     // if(this.player.x >575 && this.player.x <623 && this.player.y >878 && this.player.y <913) {
     //   console.log("Jump to level3")
     //   this.level3();
     // }
 
-    if(this.player.x >840 && this.player.x <887 && this.player.y >211 && this.player.y <235) {
-      console.log("Jump to lab")
-      this.lab();
-    }
+    // if(this.player.x >840 && this.player.x <887 && this.player.y >211 && this.player.y <235) {
+    //   console.log("Jump to lab")
+    //   this.lab();
+    // }
 
 
       if (this.cursors.left.isDown)
@@ -186,20 +182,20 @@ class world extends Phaser.Scene {
   //   this.scene.start("level1");
   // }
 
-  // level2(player,title){
-  //   console.log("level2 function");
-  //   this.scene.start("level2");
-  // }
+  introend(player,title){
+    console.log("introend function");
+    this.scene.start("introend");
+  }
 
   // level3(player,title){
   //   console.log("level3 function");
   //   this.scene.start("level3");
   // }
 
-  lab(player,title){
-    console.log("lab function");
-    this.scene.start("lab");
-  }
+  // lab(player,title){
+  //   console.log("lab function");
+  //   this.scene.start("lab");
+  // }
 
 
 } //////////// end of class world ////////////////////////

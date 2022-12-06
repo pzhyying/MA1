@@ -1,7 +1,7 @@
-class world extends Phaser.Scene {
+class world2 extends Phaser.Scene {
   constructor() {
     super({
-      key: "world",
+      key: "world2",
     });
 
     // Put global variable here
@@ -50,7 +50,6 @@ class world extends Phaser.Scene {
     // Step 6  Load in layers by layers
     this.groundLayer = map.createLayer("groundLayer",tilesArray,0,0);
     this.buildingLayer = map.createLayer("buildingLayer",tilesArray,0,0);
-    this.decoLayer = map.createLayer("decoLayer",tilesArray,0,0);
     
 
     // Add main player here with physics.add.sprite
@@ -90,13 +89,12 @@ class world extends Phaser.Scene {
 
  
 
-  this.player = this.physics.add.sprite(658, 385, 'girl').setScale(0.9)
+  this.player = this.physics.add.sprite(863, 251, 'girl').setScale(0.9)
   window.player = this.player;
 
   this.player.body.setSize(this.player.width*0.3, this.player.height*0.5)
 
   this.buildingLayer.setCollisionByExclusion(-1, true) 
-  this.decoLayer.setCollisionByExclusion(-1, true)
 
   // Show colliding tiles as different colours 
   // const debugGraphics = this.add.graphics().setAlpha(0.75);
@@ -106,9 +104,7 @@ class world extends Phaser.Scene {
   // faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   // });
 
-  this.physics.add.collider(this.decoLayer, this.player);
   this.physics.add.collider(this.buildingLayer, this.player);
-  
 
   //window.player=this.player;
 
@@ -133,10 +129,10 @@ class world extends Phaser.Scene {
   } /////////////////// end of create //////////////////////////////
 
   update() {
-    // if(this.player.x >416 && this.player.x <455 && this.player.y >846 && this.player.y <881) {
-    //   console.log("Jump to level1")
-    //   this.level1();
-    // }
+    if(this.player.x >416 && this.player.x <455 && this.player.y >846 && this.player.y <881) {
+      console.log("Jump to introroom")
+      this.introroom();
+    }
 
     // if(this.player.x >584 && this.player.x <599 && this.player.y >315 && this.player.y <331) {
     //   console.log("Jump to level2")
@@ -181,10 +177,10 @@ class world extends Phaser.Scene {
       }
   } /////////////////// end of update //////////////////////////////
  
-  // level1(player,title){
-  //   console.log("level1 function");
-  //   this.scene.start("level1");
-  // }
+  introroom(player,title){
+    console.log("introroom function");
+    this.scene.start("introroom");
+  }
 
   // level2(player,title){
   //   console.log("level2 function");

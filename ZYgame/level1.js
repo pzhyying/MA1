@@ -17,11 +17,10 @@ class level1 extends Phaser.Scene {
 
     // Step 2 : Preload any images here
     this.load.image("pipoyaImg", "assets/pipoya.png");
-
-    //dust
-    this.load.spritesheet('object','assets/object.png',{frameWidth:32, frameHeight:32});
     
-    //girl
+    //grass
+    this.load.spritesheet('object','assets/object.png',{frameWidth:32, frameHeight:32});
+
     this.load.spritesheet('girl', 'assets/yuri.png', {frameWidth: 64, frameHeight: 64});
   }
 
@@ -47,7 +46,7 @@ class level1 extends Phaser.Scene {
     // Step 5  create an array of tiles
     let tilesArray = [pipoyaTiles,pipoya2Tiles];
 
-    // Step 6  Load in layers by layers
+   //Step 6  Load in layers by layers
     this.groundLayer = map.createLayer("groundLayer",tilesArray,0,0);
     this.chairLayer = map.createLayer("chairLayer",tilesArray,0,0);
     this.wallLayer = map.createLayer("wallLayer",tilesArray,0,0);
@@ -84,8 +83,8 @@ class level1 extends Phaser.Scene {
 // this.dustGroup2.children.iterate(c=>{
 //   c.play('dustAnim')
 
-//
-this.dustGroup=this.physics.add.group()
+
+  this.dustGroup=this.physics.add.group()
 
     var dust1 = map.findObject("dustLayer", (obj) => obj.name === "dust1");
     this.dustGroup.create(dust1.x,dust1.y,"dust1").play("dustAnim");
@@ -147,7 +146,6 @@ this.dustGroup=this.physics.add.group()
     var dust20 = map.findObject("dustLayer", (obj) => obj.name === "dust20");
     this.dustGroup.create(dust20.x,dust20.y,"dust20").play("dustAnim");
 
-
     // Add main player here with physics.add.sprite
     var spaceDown = this.input.keyboard.addKey('SPACE');
 
@@ -183,15 +181,13 @@ this.dustGroup=this.physics.add.group()
       repeat:-1
   });
 
-  
-
-  var start = map.findObject("Object Layer 1", (obj) => obj.name === "Start");
+  var start = map.findObject("Object Layer 1", (obj) => obj.name === "roomStart");
 
   // this.player = this.physics.add.sprite(Start.x, Start.y, 'girl').setScale(0.9)
   this.player = this.physics.add.sprite(477, 39, 'girl').setScale(0.9)
   window.player = this.player;
 
-  this.player.body.setSize(this.player.width*0.6)
+    this.player.body.setSize(this.player.width*0.6)
 
   //this.chairLayer.setCollisionByExclusion(-1, true)
   this.objectLayer.setCollisionByExclusion(-1, true)
@@ -221,6 +217,11 @@ this.dustGroup=this.physics.add.group()
 
   this.player.setCollideWorldBounds(true);//don't go out of the this.map
   
+  this.physics.add.overlap(
+    this.player,
+    this.dustGroup,
+    this.collectDust,null,this
+  );
 
     // Add time event / movement here
 
@@ -237,17 +238,29 @@ this.dustGroup=this.physics.add.group()
 
     // camera follow player
     // this.cameras.main.startFollow(this.player);
+
+    var spaceDown = this.input.keyboard.addKey('SPACE');
+        
+    spaceDown.on('down', function(){
+    console.log("restart level2");
+
+        this.scene.start("level2",
+        //optional parameters
+        {
+
+        });
+    }, this )
+
   } /////////////////// end of create //////////////////////////////
 
   collectDust(player,dustGroup){
     console.log("dustOverlap")
   };
 
-
   update() {
-    // if(this.player.x >616 && this.player.x <663 && this.player.y >625 && this.player.y <625)
-    // console.log("Jump to world")
-    // this.world();
+    if(this.player.x >465 && this.player.x <494 && this.player.y >28 && this.player.y <44){
+    console.log("Jump to world3")
+    this.level1win();}
 
       if (this.cursors.left.isDown)
       {
@@ -280,5 +293,19 @@ this.dustGroup=this.physics.add.group()
   //   console.log("level1 function");
   //   this.scene.start("level1");
   // }
+
+  collectDust(player,object){
+    console.log("dust overlap player")
+    object.disableBody(true,true);
+
+    window.object=window.object+1;
+  }
+
+  level1win(){
+    if(window.object == 20){
+      this.scene.start("winningscene1")
+    }
+  }
+  
 
 } //////////// end of class world ////////////////////////

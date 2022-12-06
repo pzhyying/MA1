@@ -18,6 +18,8 @@ class level2 extends Phaser.Scene {
     // Step 2 : Preload any images here
     this.load.image("pipoyaImg", "assets/pipoya.png");
     
+    //grass
+    this.load.spritesheet('object','assets/object.png',{frameWidth:32, frameHeight:32});
 
     this.load.spritesheet('girl', 'assets/yuri.png', {frameWidth: 64, frameHeight: 64});
   }
@@ -205,16 +207,32 @@ this.anims.create({
 
     // camera follow player
     // this.cameras.main.startFollow(this.player);
+
+    var spaceDown = this.input.keyboard.addKey('SPACE');
+        
+    spaceDown.on('down', function(){
+    console.log("restart level2");
+
+        this.scene.start("level2",
+        //optional parameters
+        {
+
+        });
+    }, this )
+
+    // console.log("showInventory");
+
+    //     this.scene.launch("showInventory");
   } /////////////////// end of create //////////////////////////////
 
-  collectGrass(player,grassGroup){
-    console.log("grassOverlap")
-  };
+  // collectGrass(player,grassGroup){
+  //   console.log("grassOverlap")
+  // };
 
   update() {
-    // if(this.player.x >616 && this.player.x <663 && this.player.y >625 && this.player.y <625)
-    // console.log("Jump to world")
-    // this.world();
+    if(this.player.x >167 && this.player.x <184 && this.player.y >109 && this.player.y <128){
+      console.log("Jump to winningscene2")
+      this.level2win();}
 
       if (this.cursors.left.isDown)
       {
@@ -247,5 +265,19 @@ this.anims.create({
   //   console.log("level1 function");
   //   this.scene.start("level1");
   // }
+
+  collectGrass(player,object){
+    console.log("grass overlap player")
+    object.disableBody(true,true);
+
+    window.object=window.object+1;
+  }
+
+  level2win(){
+    console.log("level2win")
+    if(window.object == 40){
+      this.scene.start("winningscene2")
+    }
+  }
 
 } //////////// end of class world ////////////////////////
